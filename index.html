@@ -6,9 +6,37 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="main.js"></script>
 </head>
-<body>
-    
+<body class="homepage">
+    <main class="container homepage">
+        <div class = "row justify-content-center">
+            <div class = 'col-12 border border-dark rounded-left bg-secondary text-white'>
+                <h1>Chris Says</h1>
+            </div>
+        </div>
+                <div class="row align-items-center">
+            <div class='col-3 border border-dark rounded-left bg-secondary text-white'>
+                    <h3>Hi Score</h3>
+                    <div class="hiScore"></div>
+                    <h3>Current Score</h3>
+                    <div class="currentScore"></div>
+                    <h3>Options</h3>
+                    <button type="button" class="lv1 btn btn-success">Easy</button>
+                    <button type="button" class="lv2 btn btn-warning">Medium</button>
+                    <button type="button" class="lv3 btn btn-danger">Hard</button>
+            </div>
+            <div class='playField col-9 border border-dark rounded-left'>
+           <h2>Playfield is generated Here</h2>
+                </div>
+            </div>
+
+        <div class="row ">
+            <div class="col-12 border border-dark bg-success text-white"> 
+                <h1>Play</h1>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
