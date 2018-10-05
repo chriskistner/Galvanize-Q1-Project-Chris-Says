@@ -1,0 +1,26 @@
+{
+  "name": "Galvanize-Q1-Project-Chris-Says",
+  "version": "1.0.0",
+  "description": "Galvanize Q1 project covering front-end Development.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chriskistner/Galvanize-Q1-Project-Chris-Says.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chriskistner/Galvanize-Q1-Project-Chris-Says/issues"
+  },
+  "homepage": "https://github.com/chriskistner/Galvanize-Q1-Project-Chris-Says#readme",
+  "devDependencies": {
+    "browserify": "^16.2.3",
+    "live-server": "^1.2.0",
+    "run-all": "^1.0.1",
+    "watchify": "^3.11.0"
+  }
+}
