@@ -1,3 +1,20 @@
 .homepage {
     height: 100vh;
 }
+
+.playField {
+    width: 800px !important;
+}
+.highlighted {
+    background-color: red;
+    box-shadow: 0 0 15px black;
+}
+
+.gameButton {
+    border: 2px solid black;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    margin: 10px 50px ;
+}
