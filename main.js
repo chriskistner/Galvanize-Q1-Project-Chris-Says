@@ -39,7 +39,7 @@ let startingDifficulty;
 // Start Game on Easy Difficulty
 function playEasy () {
     let answer = generatePuzzle(4);
-    startingDifficulty = 4;
+    startingDifficulty = 10;
     let inputs = Array.from(playButtons);
     delay(answer.length -1, 1500, showPuzzle(answer, inputs), clearBoard)
 }
@@ -47,7 +47,7 @@ function playEasy () {
 function playMedium () {
     let answer = generatePuzzle(5);
     console.log(answer);
-    startingDifficulty = 5;
+    startingDifficulty = 25;
     let inputs = Array.from(playButtons);
     delay(answer.length -1, 1200, showPuzzle(answer, inputs), clearBoard)
 }
@@ -55,7 +55,7 @@ function playMedium () {
 function playHard () {
     let answer = generatePuzzle(6);
     console.log(answer);
-    startingDifficulty = 6;
+    startingDifficulty = 50;
     let inputs = Array.from(playButtons);
     delay(answer.length -1, 800, showPuzzle(answer, inputs), clearBoard)
 }
