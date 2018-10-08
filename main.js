@@ -36,7 +36,7 @@ function generatePuzzle (difficulty) {
 //Play Modes
 let startingDifficulty;
 
-// Play Easy Mode
+// Start Game on Easy Difficulty
 function playEasy () {
     let answer = generatePuzzle(4);
     startingDifficulty = 4;
@@ -59,13 +59,10 @@ function playHard () {
     let inputs = Array.from(playButtons);
     delay(answer.length -1, 800, showPuzzle(answer, inputs), clearBoard)
 }
-
-
 function clearBoard(){
     const inputs = Array.from(playButtons);
     inputs.forEach(ele => ele.classList.remove('highlighted'))
 }
-
 function showPuzzle (answer,inputs) {
     let index = 0
     return function(){
@@ -81,7 +78,6 @@ function delay(numberOfTimes, milliseconds, cb, lastAction){
         delay(numberOfTimes -1, milliseconds, cb, lastAction)
     },milliseconds)
 }
-
 // Answer Check;
 let submission = [];
 function inputAnswer(event) {
@@ -89,7 +85,6 @@ function inputAnswer(event) {
     console.log(submission);
     event.target.classList.add("selected");
 }
-
 function checkAnswer() {
     if (answer.length !== submission.length) {
         submit.textContent = `Incorrect`

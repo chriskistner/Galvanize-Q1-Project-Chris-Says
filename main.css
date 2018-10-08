@@ -19,6 +19,10 @@
     box-shadow: 0 0 15px black;
 }
 
+.menu {
+    margin-bottom: 10px;
+}
+
 .gameButton {
     border: 2px solid black;
     border-radius: 50%;
@@ -36,7 +40,7 @@
 
 .hiScore {
     border: 1px solid black;
-    background-color: goldenrod;
+    background-color: black;
     margin-bottom: 15px;
 }
 
