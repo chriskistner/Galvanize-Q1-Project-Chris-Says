@@ -36,13 +36,13 @@
 }
 
 .currentScore {
-    border: 1px solid black;
+    border: 1px solid white;
     background-color: black;
     margin-bottom: 15px;
 }
 
 .hiScore {
-    border: 1px solid black;
+    border: 1px solid white;
     background-color: black;
     margin-bottom: 15px;
 }
@@ -50,15 +50,18 @@
 .scoreCounterText {
     padding: 1px;
     font-family: 'Orbitron', sans-serif;
-    font-size: 2em;
+    font-size: 1.5em;
     margin: auto;
     color: whitesmoke;
 }
 .emphasize {
-    font-weight: bold;
-    box-shadow: 0 0 15px black;
+    box-shadow: 0 0 30px black;
 }
 
 .optionsMenu {
     height: 512px;
+}
+
+.title {
+    font-family: 'Orbitron', sans-serif;
 }

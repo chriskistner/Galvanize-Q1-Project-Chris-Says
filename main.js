@@ -115,7 +115,7 @@ function inputAnswer(event) {
 function checkAnswer() {
     let hiScoreVal = Number(hiScore.textContent);
     if (answer.length !== submission.length) {
-        submit.textContent = `Incorrect`;
+        submit.textContent = `Sorry Try Again`;
         localStorage.setItem("HiScore", hiScoreVal);
         setTimeout(resetGame, 1500)
     }
@@ -124,7 +124,7 @@ function checkAnswer() {
         updateScores(startingDifficulty);
         playNextRound();
     } else {
-        submit.textContent = `Incorrect`;
+        submit.textContent = `Sorry Try Again`;
         localStorage.setItem("HiScore", hiScoreVal);
         setTimeout(resetGame, 1500);
     }
