@@ -1,11 +1,18 @@
 document.addEventListener("DOMContentLoaded", function (){
-    //Generate Play Field
+    //DOM Objects
     const playField = document.querySelector(".playField");
     const easyMode = document.querySelector(".lv1")
     const normalMode = document.querySelector(".lv2")
     const hardMode= document.querySelector(".lv3")
     const submit = document.querySelector(".Submit");
     const reset = document.querySelector(".reset");
+    const submitButton = document.querySelector('.submitButton')
+    let hiScore = document.querySelector('.hScore');
+    let currentScore = document.querySelector('.cScore');
+    let storedHiScore = localStorage.getItem('HiScore');
+    //hiScore.textContent = storedHiScore;
+
+    //Generate Play Field
     function createBoard (ID) {
         return `
         <div class = "gameButton" data-id="${ID}">
@@ -20,9 +27,14 @@ document.addEventListener("DOMContentLoaded", function (){
 }
 const renderBoard = createGrid(15);
 playField.innerHTML = renderBoard.join('\n');
+(function hiScoreCheck () {
+    if (localStorage.getItem("HiScore") === null) {
+        hiScore.textContent = `${0}`;
+    } else {hiScore.textContent = storedHiScore;}
+}());
 
-const playButtons = document.querySelectorAll(".gameButton");
 // Generates the random layout of the start of  the puzzle.
+const playButtons = document.querySelectorAll(".gameButton");
 let answer = [];
 function generatePuzzle (difficulty, answer = []) {
     while(answer.length < difficulty){
@@ -45,22 +57,25 @@ function play (puzzle, startingDiff, delayTime) {
 // Start Game on Easy Difficulty
 function playEasy () {
     answer = generatePuzzle(4);
+    clearBoard();
     play(answer, 10, 1500)
 }
 // Start a Game on Medium Difficulty
 function playMedium () {
     answer = generatePuzzle(5);
+    clearBoard();
     play(answer, 25, 1200);
 }
 //Start a Game on Hard Difficulty
 function playHard () {
     answer = generatePuzzle(6);
-    console.log(answer);
+    clearBoard();
     play(answer, 50, 800);
 }
 function clearBoard(){
     const inputs = Array.from(playButtons);
     inputs.forEach(ele => ele.classList.remove('highlighted'));
+    inputs.forEach(ele => ele.classList.remove('selected'));
 }
 
 function playNextRound() {
@@ -98,10 +113,11 @@ function inputAnswer(event) {
     event.target.classList.add("selected");
 }
 function checkAnswer() {
+    let hiScoreVal = Number(hiScore.textContent);
     if (answer.length !== submission.length) {
         submit.textContent = `Incorrect`;
         localStorage.setItem("HiScore", hiScoreVal);
-        //setTimeout(resetGame(), 1500)
+        setTimeout(resetGame, 1500)
     }
     if (arrayCheck(answer, submission)) {
         submit.textContent=`Correct`;
@@ -110,7 +126,7 @@ function checkAnswer() {
     } else {
         submit.textContent = `Incorrect`;
         localStorage.setItem("HiScore", hiScoreVal);
-        //setTimeout(resetGame(), 1500);
+        setTimeout(resetGame, 1500);
     }
 }
 function arrayCheck (arr1, arr2) {
@@ -126,11 +142,6 @@ function resetGame () {
     submit.textContent = `SUBMIT`;
 }
 //Score Calculator
-let hiScore = document.querySelector('.hScore');
-let currentScore = document.querySelector('.cScore');
-let storedHiScore = localStorage.getItem('HiScore');
-hiScore.textContent = storedHiScore;
-
 function updateScores (difficulty) {
     let hiScoreVal = Number(hiScore.textContent);
     let scoreVal = Number(currentScore.textContent);
@@ -153,5 +164,11 @@ easyMode.addEventListener('click', playEasy);
 normalMode.addEventListener('click', playMedium);
 hardMode.addEventListener('click', playHard);
 submit.addEventListener('click', checkAnswer);
+submitButton.addEventListener('mouseover', function (){
+    submitButton.classList.add('emphasize')
+});
+submitButton.addEventListener('mouseout', function (){
+    submitButton.classList.remove('emphasize')
+});
 reset.addEventListener('click', resetGame);
 })

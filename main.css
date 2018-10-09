@@ -1,9 +1,12 @@
 .homepage {
     height: 100vh;
+    background: url(images/simon-says-machine.jpeg) no-repeat center center fixed;
 }
 
 .playField {
     width: 800px !important;
+    background-color:white;;
+    
 }
 .highlighted {
     background-color: red;
@@ -24,7 +27,7 @@
 }
 
 .gameButton {
-    border: 2px solid black;
+    border: 3px solid black;
     border-radius: 50%;
     width: 100px;
     height: 100px;
@@ -50,4 +53,12 @@
     font-size: 2em;
     margin: auto;
     color: whitesmoke;
+}
+.emphasize {
+    font-weight: bold;
+    box-shadow: 0 0 15px black;
+}
+
+.optionsMenu {
+    height: 512px;
 }
