@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function (){
     const normalMode = document.querySelector(".lv2")
     const hardMode= document.querySelector(".lv3")
     const submit = document.querySelector(".Submit");
+    const reset = document.querySelector(".reset");
     function createBoard (ID) {
         return `
         <div class = "gameButton" data-id="${ID}">
@@ -23,46 +24,71 @@ playField.innerHTML = renderBoard.join('\n');
 const playButtons = document.querySelectorAll(".gameButton");
 // Generates the random layout of the start of  the puzzle.
 let answer = [];
-function generatePuzzle (difficulty) {
+function generatePuzzle (difficulty, answer = []) {
     while(answer.length < difficulty){
-        const random = Math.floor(Math.random()* 16)
+        let random = Math.floor(Math.random()* 16)
         if(answer.indexOf(random) === -1){
             answer.push(random)    
         } 
     }
     return answer;
-
 }
+
+// Play Game 
+function playGame (level, starterPuzzle) {
+    let continuePlay = true;
+    while (continuePlay = true) {
+        level();
+        while(answer.length < 16) {
+            if(answer.indexOf(random) === -1){
+                answer.push(random)
+            }
+        }
+    }
+}
+
 //Play Modes
 let startingDifficulty;
+function play (puzzle, startingDiff, delayTime) {
+    // answer = generatePuzzle();
+    startingDifficulty = startingDiff;
+    let inputs = Array.from(playButtons);
+    delay(puzzle.length -1, delayTime, showPuzzle(puzzle, inputs), clearBoard);
+}
 
 // Start Game on Easy Difficulty
 function playEasy () {
-    let answer = generatePuzzle(4);
-    startingDifficulty = 10;
-    let inputs = Array.from(playButtons);
-    delay(answer.length -1, 1500, showPuzzle(answer, inputs), clearBoard)
+    answer = generatePuzzle(4);
+    play(answer, 10, 1500)
 }
 // Start a Game on Medium Difficulty
 function playMedium () {
-    let answer = generatePuzzle(5);
-    console.log(answer);
-    startingDifficulty = 25;
-    let inputs = Array.from(playButtons);
-    delay(answer.length -1, 1200, showPuzzle(answer, inputs), clearBoard)
+    answer = generatePuzzle(5);
+    play(answer, 25, 1200);
 }
 //Start a Game on Hard Difficulty
 function playHard () {
-    let answer = generatePuzzle(6);
+    answer = generatePuzzle(6);
     console.log(answer);
-    startingDifficulty = 50;
-    let inputs = Array.from(playButtons);
-    delay(answer.length -1, 800, showPuzzle(answer, inputs), clearBoard)
+    play(answer, 50, 800);
 }
 function clearBoard(){
     const inputs = Array.from(playButtons);
-    inputs.forEach(ele => ele.classList.remove('highlighted'))
+    inputs.forEach(ele => ele.classList.remove('highlighted'));
 }
+
+function playNextRound() {
+    const inputs = Array.from(playButtons);
+    if (answer.length < 16) {
+        answer = generatePuzzle(answer.length +1, answer)
+    }
+    console.log(answer);
+    submission = [];
+    inputs.forEach(ele => ele.classList.remove('selected'));
+    submit.textContent = `SUBMIT`;
+    play(answer, 10, 1500);
+}
+
 function showPuzzle (answer,inputs) {
     let index = 0
     return function(){
@@ -87,18 +113,33 @@ function inputAnswer(event) {
 }
 function checkAnswer() {
     if (answer.length !== submission.length) {
-        submit.textContent = `Incorrect`
+        submit.textContent = `Incorrect`;
+        continuePlay = false;
+        //setTimeout(resetGame(), 1500)
     }
     if (arrayCheck(answer, submission)) {
         submit.textContent=`Correct`;
         updateScores(startingDifficulty);
-    } else {submit.textContent = `Incorrect`}
+        playNextRound();
+    } else {
+        submit.textContent = `Incorrect`;
+        continuePlay = false;
+        //setTimeout(resetGame(), 1500);
+    }
 }
 
 function arrayCheck (arr1, arr2) {
     return arr1.toString() === arr2.toString();
 }
-
+// Reset Game
+function resetGame () {
+    const inputs = Array.from(playButtons);
+    answer = [];
+    submission = [];
+    currentScore.textContent = `${0}`;
+    inputs.forEach(ele => ele.classList.remove('selected'));
+    submit.textContent = `SUBMIT`;
+}
 //Score Calculator
 let hiScore = document.querySelector('.hScore');
 let currentScore = document.querySelector('.cScore');
@@ -140,4 +181,5 @@ easyMode.addEventListener('click', playEasy);
 normalMode.addEventListener('click', playMedium);
 hardMode.addEventListener('click', playHard);
 submit.addEventListener('click', checkAnswer);
+reset.addEventListener('click', resetGame);
 })
