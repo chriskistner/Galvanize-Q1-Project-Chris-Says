@@ -33,20 +33,6 @@ function generatePuzzle (difficulty, answer = []) {
     }
     return answer;
 }
-
-// Play Game 
-function playGame (level, starterPuzzle) {
-    let continuePlay = true;
-    while (continuePlay = true) {
-        level();
-        while(answer.length < 16) {
-            if(answer.indexOf(random) === -1){
-                answer.push(random)
-            }
-        }
-    }
-}
-
 //Play Modes
 let startingDifficulty;
 function play (puzzle, startingDiff, delayTime) {
@@ -114,7 +100,7 @@ function inputAnswer(event) {
 function checkAnswer() {
     if (answer.length !== submission.length) {
         submit.textContent = `Incorrect`;
-        continuePlay = false;
+        localStorage.setItem("HiScore", hiScoreVal);
         //setTimeout(resetGame(), 1500)
     }
     if (arrayCheck(answer, submission)) {
@@ -123,11 +109,10 @@ function checkAnswer() {
         playNextRound();
     } else {
         submit.textContent = `Incorrect`;
-        continuePlay = false;
+        localStorage.setItem("HiScore", hiScoreVal);
         //setTimeout(resetGame(), 1500);
     }
 }
-
 function arrayCheck (arr1, arr2) {
     return arr1.toString() === arr2.toString();
 }
@@ -143,30 +128,17 @@ function resetGame () {
 //Score Calculator
 let hiScore = document.querySelector('.hScore');
 let currentScore = document.querySelector('.cScore');
+let storedHiScore = localStorage.getItem('HiScore');
+hiScore.textContent = storedHiScore;
 
 function updateScores (difficulty) {
     let hiScoreVal = Number(hiScore.textContent);
     let scoreVal = Number(currentScore.textContent);
-    console.log(hiScoreVal);
-    if (difficulty === 4) {
-        scoreVal += scoreVal + (answer.length * difficulty)
-        currentScore.textContent= `${scoreVal}`;
-        if (scoreVal > hiScoreVal) {
-            hiScore.textContent = `${scoreVal}`;
-        }
-    }
-    else if (difficulty === 5) {
-        scoreVal += scoreVal + (answer.length * difficulty)
-        currentScore.textContent= `${scoreVal}`;
-        if (scoreVal > hiScoreVal) {
-            hiScore.textContent = `${scoreVal}`;
-        }
-    } else {
-        scoreVal += scoreVal + (answer.length *difficulty)
-        currentScore.textContent =`${scoreVal}`;
-        if (scoreVal > hiScoreVal) {
-            hiScore.textContent = `${scoreVal}`;
-        }
+    scoreVal += scoreVal + (answer.length * difficulty)
+    currentScore.textContent= `${scoreVal}`;
+    if (scoreVal > hiScoreVal) {
+        hiScore.textContent = `${scoreVal}`;
+        localStorage.setItem("HiScore", scoreVal);
     }
 }
 //Event Listeners
