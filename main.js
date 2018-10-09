@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function (){
     let hiScore = document.querySelector('.hScore');
     let currentScore = document.querySelector('.cScore');
     let storedHiScore = localStorage.getItem('HiScore');
-    //hiScore.textContent = storedHiScore;
 
     //Generate Play Field
     function createBoard (ID) {
@@ -83,7 +82,6 @@ function playNextRound() {
     if (answer.length < 16) {
         answer = generatePuzzle(answer.length +1, answer)
     }
-    console.log(answer);
     submission = [];
     inputs.forEach(ele => ele.classList.remove('selected'));
     submit.textContent = `SUBMIT`;
@@ -109,7 +107,6 @@ function delay(numberOfTimes, milliseconds, cb, lastAction){
 let submission = [];
 function inputAnswer(event) {
     submission.push(event.target.getAttribute('data-id'));
-    console.log(submission);
     event.target.classList.add("selected");
 }
 function checkAnswer() {
