@@ -4,7 +4,9 @@
   "description": "Galvanize Q1 project covering front-end Development.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "live-server",
+    "dev": "run-all \"npm run test\" browserify",
+    "watch": "watchify /main.js"
   },
   "repository": {
     "type": "git",
