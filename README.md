@@ -1,7 +1,7 @@
 # Galvanize-Q1-Project-Chris-Says
 Galvanize Q1 project covering front-end Development.
 Project Description:
-Welcome to Chris Says, a browser-variant of the class 80s electronic game Simon Says. This is a pattern-matching game in which players must replicate a sequence of flashing circles on the screen. The more you get right the longer the sequence grows the more points you get. See if you can get the high score or complete a whole 16-button sequence.
+Welcome to Chris Says, a browser-variant of the class 80s electronic game Simon Says. This is a pattern-matching game in which players must replicate a sequence of flashing circles on the screen. The more you get right the longer the sequence grows the more points you get. See if you can get the high score or complete a whole 16-button sequence. This project was created as part of my Galvanize Web Development education, it was built in 3-days after just under 1-month at the school for my Q1 project to demonstrate my mastery of front-end development.
 
 ![Starter Screen](images/Screenshot-Home.png)
 
@@ -10,7 +10,7 @@ Instructions:
 
 2. 1.5 seconds after clicking the game will begin and your first pattern will begin to play across the screen as seen below. Each button will flash Red.
 
-![Game in Play](images/Screenshot-Runnning.png)
+![Game in Play](images/Screenshot-Running.png)
 
 3. After the sequence finishes move your cursor, or use your finger, and tap the buttons to replicate the pattern. You're inputs will turn Blue, once your finished click submit at the bottom of the page.
 
