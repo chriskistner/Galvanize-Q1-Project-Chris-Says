@@ -63,10 +63,10 @@ function play (puzzle, startingDiff, delayTime) {
     // Starts a Game on the Easy difficulty setting
 function playEasy () {
     answer = generatePuzzle(4);
+    clearBoard();
+    play(answer, 10, 1500);
     normalMode.disabled = true;
     hardMode.disabled = true;
-    clearBoard();
-    play(answer, 10, 1500)
 }
 
     //Starts a Game on the Easy difficulty setting
