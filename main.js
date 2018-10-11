@@ -63,6 +63,8 @@ function play (puzzle, startingDiff, delayTime) {
     // Starts a Game on the Easy difficulty setting
 function playEasy () {
     answer = generatePuzzle(4);
+    normalMode.disabled = true;
+    hardMode.disabled = true;
     clearBoard();
     play(answer, 10, 1500)
 }
@@ -70,6 +72,8 @@ function playEasy () {
     //Starts a Game on the Easy difficulty setting
 function playMedium () {
     answer = generatePuzzle(5);
+    easyMode.disabled = true;
+    hardMode.disabled = true;
     clearBoard();
     play(answer, 25, 1200);
 }
@@ -77,6 +81,8 @@ function playMedium () {
     //Starts a Game on the Easy difficulty setting
 function playHard () {
     answer = generatePuzzle(6);
+    easyMode.disabled = true;
+    normalMode.disabled = true;
     clearBoard();
     play(answer, 50, 800);
 }
@@ -158,6 +164,9 @@ function resetGame () {
     currentScore.textContent = `${0}`;
     inputs.forEach(ele => ele.classList.remove('selected'));
     submit.textContent = `SUBMIT`;
+    easyMode.disabled = false;
+    normalMode.disabled = false;
+    hardMode.disabled = false;
 }
     //Takes in the difficulty level being played and updates your score as you continue to play the game.
 function updateScores (difficulty) {
