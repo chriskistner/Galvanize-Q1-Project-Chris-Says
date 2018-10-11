@@ -17,8 +17,28 @@
     border: 4px solid red !important;
 }
 
+.buttonColor1 {
+    background-color: red;
+    box-shadow: 0 0 15px black;
+}
+
+.buttonColor2 {
+    background-color: yellow;
+    box-shadow: 0 0 15px black;
+}
+
+.buttonColor3 {
+    background-color: green;
+    box-shadow: 0 0 15px black;
+}
+
+.buttonColor4 {
+    background-color: blue;
+    box-shadow: 0 0 15px black;
+}
+
 .selected {
-    background-color:blue;
+    background-color: red;
     box-shadow: 0 0 15px black;
 }
 
@@ -68,4 +88,8 @@
 
 .reset {
     width: 92%;
+}
+
+.version {
+    font-size: 14px;
 }

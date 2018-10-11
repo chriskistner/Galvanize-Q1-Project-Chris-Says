@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function (){
     const submitButton = document.querySelector('.submitButton')
     let hiScore = document.querySelector('.hScore');
     let currentScore = document.querySelector('.cScore');
-    let storedHiScore = localStorage.getItem('HiScore');
+    let storedHiScore = localStorage.getItem('HiScore') || 0;
 
 //GENERATE PLAY FIELD
     //Creates the Div for the game's buttons.
