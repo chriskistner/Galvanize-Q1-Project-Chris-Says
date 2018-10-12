@@ -5,12 +5,13 @@
 
 .playField {
     width: 800px !important;
-    background-color:white;
+    /* background-color:white; */
     height: 100%;
 }
 .highlighted {
-    background-color: red;
+    background-color: red !important;
     box-shadow: 0 0 15px black;
+    opacity: 1.0 !important;
 }
 
 .hover {
@@ -38,8 +39,9 @@
 }
 
 .selected {
-    background-color: red;
+    background-color: blue !important;
     box-shadow: 0 0 15px black;
+    opacity: 1.0 !important;
 }
 
 .menu {
@@ -53,6 +55,8 @@
     height: 100px;
     display: inline-block;
     margin: 10px 50px ;
+    background-color: white;
+    opacity: 0.9;
 }
 
 .currentScore {
